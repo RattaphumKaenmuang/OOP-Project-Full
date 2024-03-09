@@ -1,0 +1,131 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #ffcb0b;
+    padding-left: 120px;
+    height: 80px;
+}
+
+.container {
+    /* background-color: aqua; */
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.pass-container {
+    height: auto;
+    background-color: #ffcb0b;
+    padding-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+.title-label {
+    margin-top: 15px;
+    padding-left: 15px;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.pass-input {
+    /* background-color: greenyellow; */
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input-detail {
+    /* background-color: #25ff19; */
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 25px;
+    justify-content:space-around;
+}
+
+.info-name {
+    margin: 10px;
+    padding: 15px;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 22px;
+}
+
+.title-input {
+    width: 200px;
+}
+
+.title-label, .first-name-label, .middle-name-label, .last-name-label, 
+.birth-label, .email-label, .phone-label {
+    margin-left: 10px;
+}
+
+.title-input, .first-name, .middle-name, .last-name, .birth , .birth-passenger, 
+.phone-number, .email{
+    margin-top: 10px;
+}
+
+.info-birth {
+    background-color: fuchsia;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 22px;
+}
+
+.birth-passenger {
+    width: 300px;
+}
+
+.contact-label {
+    padding: 20px;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contact-info {
+    background-color: darkcyan;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.phone-passenger, .email-passenger {
+    /* background-color: darkslateblue; */
+    margin-left: 20px;
+    padding: 10px;
+    width: 500px;
+    border-radius: 25px;
+}
+
+.next-btn {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin-top: 50px;
+    padding-right: 180px;
+    margin-bottom: 50px;
+}
+
+.next-btns {
+    width: 200px;
+    height: 50px;
+}

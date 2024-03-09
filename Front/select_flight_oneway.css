@@ -1,0 +1,121 @@
+
+* {
+      margin: 0;
+      box-sizing: border-box;
+  }
+  
+  .navbar {
+      background-color: #ffcb0b;
+      padding-left: 120px;
+      height: 80px;
+  }
+  
+  .container {
+      /* background-color: aqua; */
+      width: 100%;
+      margin-top: 50px;
+      padding: 30px;
+      border-radius: 15px;
+  }
+  
+  .depart-container {
+      height: auto;
+      background-color: #ffcb0b;
+      padding-top: 20px;
+      padding: 10px;
+      border-radius: 15px;
+  }
+  
+  .depart-label, .return-label {
+      padding-left: 10px;
+      font-size: 1.85rem;
+      padding: 15px;
+  }
+  
+  .origin-destination, .destination-origin {
+      background-color: greenyellow;
+      margin-top: 10px;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: auto;
+  
+  }
+  
+  .flight-label {
+      font-size: 1.4rem;
+      font-weight:500;
+  }
+  
+  .flight-detail {
+      background-color: #fff;
+      display: flex;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      padding: 10px;
+      border-radius: 25px;
+      justify-content:space-around;
+  }
+  
+  .depart-time-label, .arrive-time-label, .flight-number-label, .aircraft_number-label, .cost-label{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .flight-detail-item {
+      width: 175px;
+      height: 40px;
+      padding: 5px;
+      /* margin-left: 35px; */
+  }
+  
+  .return-container {
+      height: auto;
+      background-color: #ffcb0b;
+      padding-top: 20px;
+      padding: 10px;
+      margin-top: 50px;
+      border-radius: 15px;
+  }
+  
+  .next-btn {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      margin-right: 100px;
+      margin-top: 50px;
+      padding-right: 30px;
+  }
+  
+  .next-btns {
+      width: 100px;
+      height: 40px;
+  }
+  
+  .flight-detail-each-item {
+      background-color: cadetblue;
+      padding: 20px;
+  }
+  
+  .flight-detail-each-item div {
+      /* background-color:orangered;*/
+      background-color: #fff;
+      display: flex;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      padding: 10px;
+      border-radius: 25px;
+      justify-content:space-around;
+  }
+  
+  .flight-detail-items {
+      padding: 10px;
+  }
+  
+  .flight-detail-each-item .btn {
+      background-color: black;
+      padding: 10px;
+      margin-right: -20px;
+  }

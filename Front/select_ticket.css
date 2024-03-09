@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #ffcb0b;
+  padding-left: 120px;
+  height: 80px;
+}
+
+.container {
+    background-color: blue;
+    margin-top: 70px;
+    height: 500px;
+    width: 1000px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+  width: 18rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.title-type {
+  align-items: center;
+}
+
+.card-info {
+  margin-top: 5px;
+  font-size: 1.05rem;
+  padding: 10px;
+}
+
+.get-boarding-btn {
+  margin-bottom: 20px;
+}
