@@ -17,7 +17,17 @@ async function search_flight() {
             localStorage.setItem('passenger_num', JSON.stringify(passenger_num));
     
             document.location.href = "select_flight.html";
-  
+
+            url = api + "/flight_instance_matches?from=" + input_from + "&to=" + input_to + "&depart_date=" + input_depart_date + "&return_date=" + input_return_date;
+            console_log(url);
+            fetch(url, {
+                  method: 'GET',
+                  headers: {
+                        'Content-Type': 'application/json',
+                  },
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
       } catch (error) {
           console.error('Error:', error);
       }

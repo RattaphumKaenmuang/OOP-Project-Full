@@ -68,24 +68,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const new_input_to = JSON.parse(localStorage.getItem('input_to'));
     const new_input_depart_date = JSON.parse(localStorage.getItem('input_depart_date'));
     const new_input_return_date = JSON.parse(localStorage.getItem('input_return_date'));
+    
 
     show_flight(new_input_from, new_input_to, new_input_depart_date, new_input_return_date);
 });
 
 async function show_flight(new_input_from, new_input_to, new_input_depart_date, new_input_return_date) {
+    // console.log(typeof(new_input_from), new_input_from)
+    // console.log(typeof(new_input_to), new_input_to)
+    // console.log(typeof(new_input_depart_date), new_input_depart_date)
+    // console.log(typeof(new_input_return_date), new_input_return_date)
     try {
         const response = await fetch(`${api}/flight_instance_matches?starting_location=${new_input_from}&destination=${new_input_to}&depart_date=${new_input_depart_date}&return_date=${new_input_return_date}`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const response_data = await response.json();
-        console.log(response_data)
-        const depart_flight_data = response_data[0];
-        const return_flight_data = response_data[1];
+        const parsed_data = await JSON.parse(response_data);
+        console.log(parsed_data)
+        const depart_flight_data = parsed_data[0];
+        const return_flight_data = parsed_data[1];
 
         // Departure flight label
         const departLabelContainer = document.querySelector(".depart-label");
-        departLabelContainer.textContent = `Departure : ${depart_flight_data[0]["depart_starting_location"]} --> ${depart_flight_data[0]["depart_destination"]}`;
+        departLabelContainer.textContent = `Departure : ${new_input_from} --> ${new_input_to}`;
 
         // Departure flight details
         const departContainer = document.getElementById("flight-detail-each-item");
@@ -93,18 +99,18 @@ async function show_flight(new_input_from, new_input_to, new_input_depart_date, 
         depart_flight_data.forEach((data, index) => {
             const element = document.createElement("div");
             element.innerHTML = `
-                    <label for="depart-time" class="depart-time-label flight-detail-items-i" id="depart-time">${data["depart_departure_time"]}</label>
-                    <label for="arrive-time" class="arrive-time-label flight-detail-items-i" id="arrive-time">${data["depart_arrival_time"]}</label>
-                    <label for="flight-number" class="flight-number-label flight-detail-items-i" id="flight_number">${data["depart_flight_number"]}</label>
-                    <label for="aircraft_number" class="aircraft_number-label flight-detail-items-i" id="aircraft_number">${data["depart_aircraft_number"]}</label>
-                    <button class="btn btn-success choose-flight-btn flight-detail-items-i" id="select-btn" onclick="selectFile('depart', ${index}, this)">${data["depart_cost"]} Baht</button>
+                    <label for="depart-time" class="depart-time-label flight-detail-items-i" id="depart-time">${data["departure_time"]}</label>
+                    <label for="arrive-time" class="arrive-time-label flight-detail-items-i" id="arrive-time">${data["arrival_time"]}</label>
+                    <label for="flight-number" class="flight-number-label flight-detail-items-i" id="flight_number">${data["flight_number"]}</label>
+                    <label for="aircraft_number" class="aircraft_number-label flight-detail-items-i" id="aircraft_number">${data["aircraft_number"]}</label>
+                    <button class="btn btn-success choose-flight-btn flight-detail-items-i" id="select-btn" onclick="selectFile('depart', ${index}, this)">${data["cost"]} Baht</button>
                 `;
             departContainer.appendChild(element);
         });
 
         // Return flight label
         const return_label = document.querySelector(".return-label");
-        return_label.textContent = `Return : ${return_flight_data[0]["return_starting_location"]} --> ${return_flight_data[0]["return_destination"]}`;
+        return_label.textContent = `Return : ${new_input_to} --> ${new_input_from}`;
 
         // Return flight details
         const returnContainer = document.getElementById("flight-return-detail-each-item");
@@ -112,11 +118,11 @@ async function show_flight(new_input_from, new_input_to, new_input_depart_date, 
         return_flight_data.forEach((data, index)=> {
             const element = document.createElement("div");
             element.innerHTML = `
-                <label for="depart-time" class="depart-time-label flight-detail-items-i" id="depart-time">${data["return_departure_time"]}</label>
-                <label for="arrive-time" class="arrive-time-label flight-detail-items-i" id="arrive-time">${data["return_arrival_time"]}</label>
-                <label for="flight-number" class="flight-number-label flight-detail-items-i" id="flight_number">${data["return_flight_number"]}</label>
-                <label for="aircraft_number" class="aircraft_number-label flight-detail-items-i" id="aircraft_number">${data["return_aircraft_number"]}</label>
-                <button class="btn btn-success choose-flight-btn flight-detail-items-i" id="select-btn" onclick="selectFile('return', ${index}, this)">${data["return_cost"]} Baht</button>
+                <label for="depart-time" class="depart-time-label flight-detail-items-i" id="depart-time">${data["departure_time"]}</label>
+                <label for="arrive-time" class="arrive-time-label flight-detail-items-i" id="arrive-time">${data["arrival_time"]}</label>
+                <label for="flight-number" class="flight-number-label flight-detail-items-i" id="flight_number">${data["flight_number"]}</label>
+                <label for="aircraft_number" class="aircraft_number-label flight-detail-items-i" id="aircraft_number">${data["aircraft_number"]}</label>
+                <button class="btn btn-success choose-flight-btn flight-detail-items-i" id="select-btn" onclick="selectFile('return', ${index}, this)">${data["cost"]} Baht</button>
             `;
             returnContainer.appendChild(element);
         });

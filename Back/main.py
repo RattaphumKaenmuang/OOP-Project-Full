@@ -444,10 +444,14 @@ class Service:
     def total_cost(self):
         return self.__total_cost
 
+    @total_cost.setter
+    def total_cost(self, total_cost):
+        self.__total_cost = total_cost
+
 class Insurance(Service):
     def __init__(self, service_name, price_per_unit):
         super().__init__(service_name, price_per_unit)
-        self.__total_cost = price_per_unit
+        self.total_cost = price_per_unit
 
 
 class Baggage(Service):
@@ -470,8 +474,8 @@ nokair.flight_list.append(Flight(nokair.airport_list[0], nokair.airport_list[1],
 nokair.flight_list.append(Flight(nokair.airport_list[1], nokair.airport_list[0], "ABC"))
 
 nokair.aircraft_list.append(Aircraft("101"))
-nokair.flight_instance_list.append(FlightInstance(nokair.flight_list[0], "10:00", "12:00", nokair.aircraft_list[0], "01-01-2000", 1000))
-nokair.flight_instance_list.append(FlightInstance(nokair.flight_list[1], "10:00", "12:00", nokair.aircraft_list[0], "02-01-2000", 1000))
+nokair.flight_instance_list.append(FlightInstance(nokair.flight_list[0], "8:00", "10:00", nokair.aircraft_list[0], "2000-01-01", 1000))
+nokair.flight_instance_list.append(FlightInstance(nokair.flight_list[1], "10:00", "12:00", nokair.aircraft_list[0], "2000-01-02", 1000))
 
 nokair.service_list = Insurance("Insurance", 100)
 nokair.service_list = Baggage("+5kg Baggage", 100, 5)
